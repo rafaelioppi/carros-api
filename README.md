@@ -30,21 +30,36 @@ A API estará disponível em /carros.
 Adicione esta configuração global para permitir comunicação com o front-end:
 
 java
-@Configuration
+@Configuration 
+
 public class CorsConfig {
+
     @Bean
+    
     public WebMvcConfigurer corsConfigurer() {
+    
         return new WebMvcConfigurer() {
+        
             @Override
+            
             public void addCorsMappings(CorsRegistry registry) {
+            
                 registry.addMapping("/**")
+                
                         .allowedOrigins("https://savage-goblin-x5wpw4xw6vpq366g6-5500.app.github.dev")
+                        
                         .allowedMethods("GET", "POST", "PUT", "DELETE", "OPTIONS")
+                        
                         .allowedHeaders("*")
+                        
                         .allowCredentials(false);
+                        
             }
+            
         };
+        
     }
+    
 }
 
 📋 Endpoints disponíveis
@@ -77,6 +92,6 @@ Código
 
 │   └── CorsConfig.java
 
-Código
 
-Se quiser, posso te ajudar a transformar isso em documentação online ou gerar uma versão em PDF. Só dizer!
+
+
