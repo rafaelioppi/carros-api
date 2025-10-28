@@ -29,7 +29,6 @@ A API estará disponível em /carros.
 🔗 Integração CORS
 Adicione esta configuração global para permitir comunicação com o front-end:
 
-java
 @Configuration 
 
 public class CorsConfig {
