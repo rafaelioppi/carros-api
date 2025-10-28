@@ -1,39 +1,73 @@
-# 🚗 Front-End: Cadastro e Listagem de Carros
+# 🛠️ Back-End: API de Carros com Spring Boot
 
-Este projeto é uma interface web para cadastro e visualização de carros, conectada a uma API REST. Ele permite que usuários insiram dados de veículos e visualizem a lista atualizada em tempo real.
+Este projeto é uma API REST desenvolvida com Spring Boot para gerenciar o cadastro e listagem de carros. Ele fornece endpoints para operações CRUD e está integrado ao front-end via HTTP.
 
 ## 📦 Tecnologias utilizadas
 
-- HTML5
-- CSS3 (Bootstrap 5.3)
-- JavaScript (ES6)
-- Fetch API
+- Java 17+
+- Spring Boot
+- Maven
+- JPA + H2 (ou outro banco)
+- GitHub Codespaces
 
 ## 🌐 URL da API
 
-O front-end se comunica com a seguinte API:
+https://special-journey-v6vrv5wv46qghwp9j-3335.app.github.dev/carros
 
-
-> Certifique-se de que a API esteja rodando e com CORS habilitado para o domínio do front-end:
-> `https://savage-goblin-x5wpw4xw6vpq366g6-5500.app.github.dev`
+Código
 
 ## 🚀 Como executar
 
-1. Abra o arquivo `index.html` em seu navegador.
-2. Preencha o formulário para cadastrar um carro.
-3. A lista será atualizada automaticamente após o envio.
+1. Compile e execute com Maven:
+   ```bash
+   mvn clean install
+   mvn spring-boot:run
+Certifique-se de que a porta 3335 está pública no Codespaces.
 
-## 📋 Funcionalidades
+A API estará disponível em /carros.
 
-- Cadastro de carro com modelo, marca, ano e preço
-- Listagem dinâmica dos carros cadastrados
-- Validação básica de campos
-- Integração com API REST via `fetch`
+🔗 Integração CORS
+Adicione esta configuração global para permitir comunicação com o front-end:
 
-## 📁 Estrutura de arquivos
+java
+@Configuration
+public class CorsConfig {
+    @Bean
+    public WebMvcConfigurer corsConfigurer() {
+        return new WebMvcConfigurer() {
+            @Override
+            public void addCorsMappings(CorsRegistry registry) {
+                registry.addMapping("/**")
+                        .allowedOrigins("https://savage-goblin-x5wpw4xw6vpq366g6-5500.app.github.dev")
+                        .allowedMethods("GET", "POST", "PUT", "DELETE", "OPTIONS")
+                        .allowedHeaders("*")
+                        .allowCredentials(false);
+            }
+        };
+    }
+}
 
-├── index.html # Interface principal
+📋 Endpoints disponíveis
+GET /carros — Listar todos os carros
 
-├── style.css # (opcional) Estilos personalizados 
+GET /carros/{id} — Buscar carro por ID
 
-├── script.js # Lógica de envio e listagem
+POST /carros — Cadastrar novo carro
+
+PUT /carros/{id} — Atualizar carro existente
+
+DELETE /carros/{id} — Remover carro
+
+📁 Estrutura de pacotes
+Código
+├── controller/
+│   └── CarroController.java
+├── model/
+│   └── Carro.java
+├── service/
+│   └── CarroService.java
+├── config/
+│   └── CorsConfig.java
+Código
+
+Se quiser, posso te ajudar a transformar isso em documentação online ou gerar uma versão em PDF. Só dizer!
