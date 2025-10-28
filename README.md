@@ -60,14 +60,23 @@ DELETE /carros/{id} — Remover carro
 
 📁 Estrutura de pacotes
 Código
+
 ├── controller/
+
 │   └── CarroController.java
+
 ├── model/
+
 │   └── Carro.java
+
 ├── service/
+
 │   └── CarroService.java
+
 ├── config/
+
 │   └── CorsConfig.java
+
 Código
 
 Se quiser, posso te ajudar a transformar isso em documentação online ou gerar uma versão em PDF. Só dizer!
