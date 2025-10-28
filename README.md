@@ -33,5 +33,7 @@ O front-end se comunica com a seguinte API:
 ## 📁 Estrutura de arquivos
 
 ├── index.html # Interface principal
+
 ├── style.css # (opcional) Estilos personalizados 
+
 ├── script.js # Lógica de envio e listagem
